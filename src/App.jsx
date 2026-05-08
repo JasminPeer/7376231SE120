@@ -40,26 +40,26 @@ const typeWeight = {
 const theme = createTheme({
   palette: {
     mode: 'light',
-    primary: { main: '#2f5f8f' },
-    secondary: { main: '#477a67' },
-    warning: { main: '#c7772e' },
-    success: { main: '#477a67' },
-    background: { default: '#f7f8f6', paper: '#ffffff' },
-    text: { primary: '#1f2933', secondary: '#64707d' },
+    primary: { main: '#3b5bdb' },
+    secondary: { main: '#0f766e' },
+    warning: { main: '#f59f00' },
+    success: { main: '#0f766e' },
+    background: { default: '#f5f7fb', paper: '#ffffff' },
+    text: { primary: '#121826', secondary: '#64748b' },
   },
-  shape: { borderRadius: 10 },
+  shape: { borderRadius: 18 },
   typography: {
-    fontFamily: 'Inter, Segoe UI, Roboto, Arial, sans-serif',
-    h1: { fontWeight: 800, letterSpacing: 0 },
-    h2: { fontWeight: 800, letterSpacing: 0 },
+    fontFamily: '"Plus Jakarta Sans", Inter, Segoe UI, Roboto, Arial, sans-serif',
+    h1: { fontWeight: 900, letterSpacing: 0 },
+    h2: { fontWeight: 900, letterSpacing: 0 },
     button: { fontWeight: 800, textTransform: 'none' },
   },
   components: {
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: '0 16px 36px rgba(31, 41, 51, 0.08)',
-          border: '1px solid rgba(100, 112, 125, 0.16)',
+          boxShadow: '0 24px 70px rgba(15, 23, 42, 0.10)',
+          border: '1px solid rgba(148, 163, 184, 0.18)',
         },
       },
     },
@@ -215,9 +215,9 @@ function App() {
           color="transparent"
           elevation={0}
           sx={{
-            borderBottom: '1px solid rgba(100, 112, 125, 0.14)',
+            borderBottom: '1px solid rgba(148, 163, 184, 0.16)',
             backdropFilter: 'blur(18px)',
-            background: 'rgba(255, 255, 255, 0.88)',
+            background: 'rgba(248, 250, 252, 0.82)',
           }}
         >
           <Toolbar sx={{ gap: 2, justifyContent: 'space-between', py: 1 }}>
@@ -227,10 +227,10 @@ function App() {
               </Box>
               <Box>
                 <Typography variant="caption" color="text.secondary">
-                  Campus Notifications
+                  Campus Notification Hub
                 </Typography>
                 <Typography variant="subtitle1" fontWeight={850}>
-                  Priority Desk
+                  Student Priority Desk
                 </Typography>
               </Box>
             </Stack>
@@ -252,39 +252,43 @@ function App() {
           </Toolbar>
         </AppBar>
 
-        <Container maxWidth="lg" sx={{ py: { xs: 3, md: 5 } }}>
+        <Container maxWidth="xl" sx={{ py: { xs: 3, md: 5 } }}>
           <Box
             component="section"
             className="signal-hero"
             sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 340px' },
+              gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 380px' },
               alignItems: 'stretch',
               gap: { xs: 2.5, md: 4 },
-              mb: 2.5,
+              mb: 3,
             }}
           >
             <Box className="hero-copy">
               <Chip
                 color="secondary"
-                label="Live campus updates"
+                label="Live from the notification service"
                 icon={<NotificationsActiveRoundedIcon />}
-                sx={{ mb: 2, fontWeight: 800 }}
+                sx={{ mb: 2.2, fontWeight: 900, width: 'fit-content' }}
               />
               <Typography
                 variant="h1"
                 sx={{
-                  maxWidth: 820,
-                  fontSize: { xs: '2.15rem', sm: '3.1rem', lg: '4.25rem' },
-                  lineHeight: 1.02,
+                  maxWidth: 900,
+                  fontSize: { xs: '2.55rem', sm: '4rem', lg: '5.8rem' },
+                  lineHeight: 0.95,
                   mb: 2,
                 }}
               >
-                Campus updates, sorted before they become noise.
+                Important campus alerts, without the clutter.
               </Typography>
-              <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 680, lineHeight: 1.55 }}>
-                The inbox keeps hiring notices, result updates, and event reminders in one place,
-                with the most useful messages kept near the top.
+              <Typography
+                variant="h5"
+                color="text.secondary"
+                sx={{ maxWidth: 760, lineHeight: 1.5, fontWeight: 500 }}
+              >
+                A clean priority inbox for placements, results, and events. The newest important
+                updates stay visible, while already viewed messages quietly move back.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2} sx={{ mt: 2.4 }}>
                 <Chip label="Placement first" color="primary" variant="filled" />
@@ -293,7 +297,7 @@ function App() {
               </Stack>
             </Box>
 
-            <Card className="radio-card" sx={{ borderRadius: 3 }}>
+            <Card className="radio-card">
               <CardContent sx={{ height: '100%' }}>
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1.4 }}>
                   <span className="pulse-dot" />
@@ -334,7 +338,7 @@ function App() {
             <MetricCard label="Viewed" value={viewedIds.length} icon={<DoneAllRoundedIcon />} color="#477a67" />
           </Box>
 
-          <Card component="section" className="desk-card" sx={{ borderRadius: 3 }}>
+          <Card component="section" className="desk-card">
             <CardContent sx={{ p: { xs: 2, md: 3 } }}>
               <Stack
                 direction={{ xs: 'column', md: 'row' }}
@@ -347,7 +351,7 @@ function App() {
                   <Typography variant="overline" color="secondary" fontWeight={900}>
                     {activePage === 'priority' ? 'Unread and important first' : 'Filter the live feed'}
                   </Typography>
-                  <Typography variant="h2" sx={{ fontSize: { xs: '1.75rem', md: '2.35rem' } }}>
+                  <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' } }}>
                     {activePage === 'priority' ? 'Priority Inbox' : 'All Notifications'}
                   </Typography>
                   <Typography color="text.secondary" sx={{ mt: 0.5 }}>
