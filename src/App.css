@@ -1,0 +1,107 @@
+.app-backdrop {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(47, 95, 143, 0.12), transparent 24rem),
+    radial-gradient(circle at 86% 10%, rgba(71, 122, 103, 0.1), transparent 24rem),
+    linear-gradient(180deg, #f7f8f6 0%, #eef3f5 52%, #f8faf9 100%);
+}
+
+.brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  color: #ffffff;
+  background: #2f5f8f;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(47, 95, 143, 0.22);
+}
+
+.signal-hero {
+  position: relative;
+  padding-left: clamp(0rem, 1.5vw, 1.25rem);
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.signal-hero::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.3rem;
+  left: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #2f5f8f, #477a67);
+  border-radius: 999px;
+}
+
+.radio-card,
+.desk-card,
+.metric-tile {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.priority-note {
+  padding: 1rem;
+  background: #f7f9fb;
+  border: 1px solid rgba(100, 112, 125, 0.14);
+  border-radius: 12px;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #477a67;
+  border-radius: 50%;
+  box-shadow: 0 0 0 7px rgba(71, 122, 103, 0.12);
+}
+
+.metric-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-tile::after {
+  content: "";
+  position: absolute;
+  right: -38px;
+  bottom: -46px;
+  width: 112px;
+  height: 112px;
+  background: rgba(47, 95, 143, 0.06);
+  border-radius: 50%;
+}
+
+.rank-badge {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 900;
+  background: #27313b;
+  border-radius: 12px;
+}
+
+@media (max-width: 680px) {
+  .nav-buttons {
+    width: 100%;
+  }
+
+  .nav-buttons button {
+    flex: 1;
+  }
+
+  .signal-hero {
+    padding-left: 1rem;
+  }
+
+  .hero-copy {
+    min-height: auto;
+  }
+}
